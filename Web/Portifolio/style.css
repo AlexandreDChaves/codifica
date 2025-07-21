@@ -1,0 +1,472 @@
+:root {
+    --github-bg: #0d1117; 
+    --github-header: #161b22; 
+    --github-border: #30363d;
+    --github-text: #c9d1d9; 
+    --github-link: #58a6ff; 
+    --github-primary: #238636;
+    --github-secondary: #1f6feb; 
+    --github-subtle-text: #8b949e;
+    --github-focus-outline: rgba(88, 166, 255, 0.4); 
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--github-bg);
+    color: var(--github-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    box-sizing: border-box; 
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+}
+
+.github-nav {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--github-header);
+    border-bottom: 1px solid var(--github-border);
+    position: sticky; 
+    top: 0;
+    z-index: 100; 
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-left .octicon {
+    font-size: 32px;
+    color: white;
+}
+
+.nav-left input {
+    background-color: var(--github-bg);
+    border: 1px solid var(--github-border);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    width: 300px;
+    font-size: 14px;
+}
+
+.nav-left input::placeholder {
+    color: var(--github-subtle-text);
+}
+
+.nav-left input:focus {
+    outline: 2px solid var(--github-focus-outline);
+    border-color: var(--github-link);
+}
+
+.nav-right {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-right a {
+    color: var(--github-text); 
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.nav-right a:hover {
+    color: white; 
+}
+
+.profile-sidebar {
+    padding: 32px;
+    border-right: 1px solid var(--github-border);
+    position: sticky; 
+    top: 72px; 
+    align-self: start; 
+    max-height: calc(100vh - 72px); 
+    overflow-y: auto; 
+}
+
+.profile-image img {
+    width: 100%;
+    max-width: 250px; 
+    border-radius: 50%;
+    border: 1px solid var(--github-border);
+    display: block; 
+    margin: 0 auto; 
+}
+
+.profile-sidebar h2 {
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 26px; 
+    line-height: 1.25;
+    word-break: break-all;
+}
+
+.username {
+    color: var(--github-subtle-text);
+    margin-top: 4px;
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.bio {
+    margin: 16px 0;
+    font-size: 16px;
+    color: var(--github-text);
+}
+
+.profile-stats {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.profile-stats div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--github-subtle-text); 
+}
+
+.profile-stats .octicon {
+    color: var(--github-subtle-text);
+}
+
+.portfolio-content {
+    padding: 32px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--github-border);
+    margin-bottom: 24px;
+    flex-wrap: wrap; 
+    gap: 5px; 
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    color: var(--github-subtle-text);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.2s ease;
+    white-space: nowrap; 
+}
+
+.tabs button:hover {
+    color: var(--github-text);
+}
+
+.tabs button.active {
+    color: white;
+}
+
+.tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #f78166; 
+}
+
+/* Estilos para esconder/mostrar o conteúdo das abas */
+.tab-content {
+    display: none; 
+}
+
+.tab-content.active-content {
+    display: block; 
+}
+
+.filter-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.filter-bar input,
+.filter-bar select {
+    background-color: var(--github-header); 
+    border: 1px solid var(--github-border);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+    outline: 2px solid var(--github-focus-outline);
+    border-color: var(--github-link);
+}
+
+.filter-bar select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c9d1d9%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.5H18.4c-6.4%200-12.5%204.6-13.2%2011.9-0.8%207.2%204.4%2013.9%2011.6%2015.6l125%20125c4.7%204.7%2012.3%204.7%2017%200l125-125c7.2-1.7%2012.4-8.4%2011.6-15.6z%22%2F%3E%3C%2Fsvg%3E'); 
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    padding-right: 30px; 
+}
+
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); 
+    gap: 16px;
+}
+
+.project-card {
+    border: 1px solid var(--github-border);
+    border-radius: 6px;
+    padding: 16px;
+    background-color: var(--github-header);
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.project-card:hover {
+    transform: translateY(-2px); 
+    border-color: var(--github-link);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.project-card h3 a {
+    color: var(--github-link);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.project-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.project-card .octicon {
+    margin-right: 8px;
+    color: var(--github-subtle-text); 
+}
+
+.project-card p {
+    font-size: 14px;
+    color: var(--github-subtle-text);
+    margin-bottom: 16px;
+    flex-grow: 1; 
+}
+
+.project-card .language {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 1px solid rgba(0,0,0,0.1); 
+}
+
+
+.language-javascript { background-color: #f1e05a; }
+.language-html { background-color: #e34c26; }
+.language-css { background-color: #563d7c; }
+.language-java { background-color: #b07219; }
+.language-python { background-color: #3572A5; }
+.language-typescript { background-color: #2b7489; }
+.language-csharp { background-color: #178600; }
+.language-go { background-color: #00ADD8; }
+.language-ruby { background-color: #701516; }
+.language-php { background-color: #4F5D95; }
+.language-other { background-color: #ededed; } 
+
+
+.project-card .project-footer {
+    display: flex;
+    gap: 16px; 
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--github-subtle-text);
+    border-top: 1px dashed rgba(255,255,255,0.05); 
+    padding-top: 10px;
+}
+
+.project-footer span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Estilos para as novas seções de conteúdo */
+#about-content h3, #contact-content h3, #overview-content h3, #contributions-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#about-content p, #contact-content p, #about-content ul {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#about-content ul, #contact-content ul {
+    list-style: none; 
+    padding-left: 0;
+}
+
+#about-content ul li, #contact-content ul li {
+    margin-bottom: 8px;
+}
+
+#about-content a, #contact-content a {
+    color: var(--github-link);
+    text-decoration: none;
+}
+
+#about-content a:hover, #contact-content a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o formulário de contato */
+.contact-form {
+    margin-top: 20px;
+    background-color: var(--github-header);
+    border: 1px solid var(--github-border);
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--github-text);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--github-border);
+    border-radius: 6px;
+    background-color: var(--github-bg);
+    color: var(--github-text);
+    font-size: 14px;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--github-focus-outline);
+    border-color: var(--github-link);
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionamento vertical */
+    min-height: 80px;
+}
+
+.contact-form button[type="submit"] {
+    background-color: var(--github-primary); /* Cor verde do GitHub */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #2ea043; /* Tom mais escuro no hover */
+}
+
+
+@media (max-width: 992px) { 
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--github-border);
+        position: static; 
+        max-height: unset;
+        overflow-y: visible;
+        padding: 24px;
+        text-align: center; 
+    }
+
+    .profile-image img {
+        max-width: 150px; 
+    }
+    
+    .github-nav {
+        padding: 12px 20px;
+        flex-wrap: wrap; 
+        gap: 10px;
+    }
+
+    .nav-left, .nav-right {
+        flex-basis: 100%; 
+        justify-content: center;
+    }
+
+    .nav-left input {
+        width: calc(100% - 60px); 
+        max-width: 300px;
+    }
+
+    .portfolio-content {
+        padding: 24px;
+    }
+
+    .filter-bar {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    }
+}
