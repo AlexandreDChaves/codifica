@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "prompt-sync": "^4.2.0"
+    "axios": "^1.11.0",
+    "prompt-sync": "^4.2.0",
+    "react-router-dom": "^7.8.1"
   }
 }
